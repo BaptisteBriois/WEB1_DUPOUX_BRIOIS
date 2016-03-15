@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnsToPosts extends Migration
+class AddColumnsUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class AddColumnsToPosts extends Migration
     {
         Schema::table('users', function(Blueprint $table) {
             $table->string('tel')->nullable()->after('name');
+            $table->boolean('admin')->default(false)->after('password');
         });
     }
 
