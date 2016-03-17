@@ -103,7 +103,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post   = Post::find($id);
-        $users  = User::all()->lists('name', 'id')  ;
+        $users  = User::all()->lists('name', 'id');
 
         return view('articles.edit')->with(compact('post', 'users'));
     }

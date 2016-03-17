@@ -14,7 +14,7 @@
             <button>Voir l'article</button>
         </a>
 
-        @if(Auth::check() && Auth::user()->id == $post->user_id || Auth::user()->admin == 1)
+        @if(Auth::check() && Auth::user()->id == $post->user_id || Auth::check() && Auth::user()->admin == 1)
         <a href="{{route('articles.edit', $post->id)}}">
             <button>Editer l'article</button>
         </a>

@@ -74,7 +74,9 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+
+        return view('comments.edit')->with(compact('comment'));
     }
 
     /**
@@ -86,7 +88,13 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment = Comment::find($id);
+
+        $comment->content = $request->content;
+
+        $comment->update();
+
+        return redirect()->route('articles.show', $comment->post_id);
     }
 
     /**
@@ -98,9 +106,9 @@ class CommentController extends Controller
     public function destroy($id)
     {
         $comment = Comment::find($id);
-        $post->delete();
+        $comment->delete();
 
 
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.show', $comment->post_id);
     }
 }
