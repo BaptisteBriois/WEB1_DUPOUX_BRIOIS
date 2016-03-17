@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidatePostRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Comment;
-use App\Models\Post;
+
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
-class CommentController extends Controller
+class ProfilController extends Controller
 {
     public function __construct()
     {
@@ -21,7 +22,13 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $profil = new User;
+        $profil->id = Auth::user()->id;
+        $profil->name = Auth::user()->name;
+        $profil->email = Auth::user()->email;
+        $profil->tel = Auth::user()->tel;
+        $profil->password = Auth::user()->password;
+        return view('profil.index')->with(compact('profil'));
     }
 
     /**
@@ -42,17 +49,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = new Comment;
-
-        $comment->user_id  = Auth::user()->id;
-        $comment->post_id  = $request->post_id;
-        $comment->content  = $request->content;
-
-        $comment->save();
-
-        return redirect()
-            ->route('articles.show', $request->post_id)
-            ->with(compact('comment'));
+        //
     }
 
     /**
@@ -74,9 +71,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        $comment = Comment::find($id);
-
-        return view('comments.edit')->with(compact('comment'));
+        $profil = User::find($id);
+        return view('profil.edit')->with(compact('profil'));
     }
 
     /**
@@ -88,13 +84,14 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $comment = Comment::find($id);
+        $user = User::find($id);
 
-        $comment->content = $request->content;
+        $user->name  = $request->name;
+        $user->email = $request->email;
 
-        $comment->update();
+        $user->update();
 
-        return redirect()->route('articles.show', $comment->post_id);
+        return redirect()->route('profil.index');
     }
 
     /**
@@ -105,10 +102,6 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $comment = Comment::find($id);
-        $comment->delete();
-
-
-        return redirect()->route('articles.show', $comment->post_id);
+        //
     }
 }
