@@ -1,4 +1,5 @@
 @foreach($comments as $comment)
+    @if($comment->post_id == $post->id)
     <p><strong>{{$comment->user->name}}</strong></p>
     <p>{{ $comment->content }}</p>
     <div class="text-center">
@@ -16,4 +17,5 @@
             {!! Form::close() !!}
         @endif
     </div>
+    @endif
 @endforeach
