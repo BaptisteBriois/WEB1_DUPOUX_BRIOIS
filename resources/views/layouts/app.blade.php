@@ -66,7 +66,8 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                                <li><a href="{{ url('/profil') }}"><i class="fa fa-btn fa-sign-out"></i>Profil</a></li>
+                                <li><a href="{{ url('/profil') }}"><i class="fa fa-btn fa-user"></i>Profil</a></li>
+                                <li><a href="{{ url('/contact') }}"><i class="fa fa-btn fa-envelope"></i>Contact</a></li>
                             </ul>
                         </li>
                     @endif

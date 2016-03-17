@@ -56,9 +56,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('/comment', 'CommentController');
 
-    Route::get('/contact', ['as' => 'page.contact', 'uses' => function() {
-        return 'ok';
-    }]);
+    Route::get('/contact', function() {
+        return view('pages.contact');
+    });
 
     Route::auth();
 

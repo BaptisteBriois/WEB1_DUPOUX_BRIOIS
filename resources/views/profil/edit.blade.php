@@ -11,7 +11,7 @@
             ]) !!}
         </div>
         <div class="form-group">
-            {!! Form::text('email', null, [
+            {!! Form::email('email', null, [
                 'class'         => 'form-control',
                 'placeholder'   => 'Email'
             ]) !!}
@@ -21,7 +21,7 @@
         </div>
         {!! Form::close() !!}
     @else
-        {{ return view('home') }}
+
     @endif
 
 @endsection
