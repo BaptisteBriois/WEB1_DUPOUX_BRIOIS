@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ValidatePostRequest;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -85,7 +86,9 @@ class PostController extends Controller
         try{
             $post = Post::findOrFail($id);
 
-            return view('articles.show')->with(compact('post'));
+            $comments = Comment::all();
+
+            return view('articles.show')->with(compact('post', 'comments'));
         }catch(\Exception $e){
             return redirect()->route('articles.index')->with(['erreur' => 'Ooooooooooooooooops']);
         }
