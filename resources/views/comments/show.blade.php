@@ -3,7 +3,7 @@
     <p><strong>{{$comment->user->name}}</strong></p>
     <p>{{ $comment->content }}</p>
     <div class="text-center">
-        @if(Auth::check() && (Auth::user()->id == $comment->user_id || Auth::user()->admin == 1))
+        @if(Auth::check() && (Auth::user()->id == $comment->user_id || Auth::check() && Auth::user()->admin == 1))
 
             {!! Form::model($comment,
             array(
