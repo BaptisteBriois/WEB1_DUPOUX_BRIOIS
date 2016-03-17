@@ -9,10 +9,11 @@
     <div class="row">
         <div class="col-md-10">
             <div class="form-group">
-        {!! Form::text('title', null, [
-            'class' => 'form-control',
-            'placeholder' => 'Message...'
-        ]) !!}
+                {!! Form::hidden('post_id', $post->id) !!}
+                {!! Form::text('content', null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Message...'
+                ]) !!}
             </div>
         </div>
 

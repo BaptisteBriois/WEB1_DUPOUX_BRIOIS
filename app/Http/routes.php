@@ -54,6 +54,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('/articles', 'PostController');
 
+    Route::resource('/comment', 'CommentController');
+
     Route::get('/contact', ['as' => 'page.contact', 'uses' => function() {
         return 'ok';
     }]);

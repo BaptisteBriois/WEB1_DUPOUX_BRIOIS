@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Post;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -39,12 +45,13 @@ class CommentController extends Controller
         $comment = new Comment;
 
         $comment->user_id  = Auth::user()->id;
-        $comment->title    = $request->message;
+        $comment->post_id  = $request->post_id;
+        $comment->content  = $request->content;
 
-        $post->save();
+        $comment->save();
 
         return redirect()
-            ->route('articles.show', $post->id)
+            ->route('articles.show', $request->post_id)
             ->with(compact('comment'));
     }
 
