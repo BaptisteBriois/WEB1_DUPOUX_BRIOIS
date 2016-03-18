@@ -27,6 +27,7 @@
                 {!! Form::submit('Refuser', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}
             </div>
+            <br>
             @endif
     @endforeach
     </div>
@@ -50,6 +51,7 @@
                     {!! Form::submit('Refuser', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </div>
+                <br>
             @endif
         @endforeach
     </div>
@@ -73,6 +75,7 @@
                     {!! Form::submit('Valider', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>
+                <br>
             @endif
         @endforeach
     </div>

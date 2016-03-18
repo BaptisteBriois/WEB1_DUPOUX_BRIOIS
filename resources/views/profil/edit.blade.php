@@ -16,8 +16,8 @@
                 'placeholder'   => 'Email'
             ]) !!}
         </div>
-        <div class="form-group">
-            {!! Form::submit('Envoyer', ['class' => 'btn btn-block btn-primary']) !!}
+        <div class="form-group text-center">
+            {!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
         </div>
         {!! Form::close() !!}
     @else

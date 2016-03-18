@@ -41,11 +41,7 @@
     <p>{{$project->goals}}</p>
 
     <h3>Infomations</h3>
-    <p>{{$project->infomations}}</p>
-
-
-
-
+    <p>{{$project->informations}}</p>
 
 @endsection
 

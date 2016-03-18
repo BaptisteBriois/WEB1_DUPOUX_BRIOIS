@@ -25,7 +25,9 @@
     ]) !!}
 </div>
 
-{!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
+<div class="text-center">
+    {!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
+</div>
 {!! Form::close() !!}
 
 @endsection
