@@ -22,12 +22,8 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        $profil = new User;
-        $profil->id = Auth::user()->id;
-        $profil->name = Auth::user()->name;
-        $profil->email = Auth::user()->email;
-        $profil->tel = Auth::user()->tel;
-        $profil->password = Auth::user()->password;
+        $profil = Auth::user();
+
         return view('profil.index')->with(compact('profil'));
     }
 

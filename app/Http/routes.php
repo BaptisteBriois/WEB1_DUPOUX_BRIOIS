@@ -72,4 +72,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('/admin', 'AdminController');
 
+    Route::resource('/projets', 'ProjectController');
+
 });
