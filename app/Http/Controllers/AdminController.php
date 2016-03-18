@@ -28,6 +28,22 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $projects = Project::all();
+
+        return view('admin')->with(compact('projects'));
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse*
+     * Update status project
+     */
+    public function update(Request $request, $id) {
+        $projects = Project::find($id);
+
+        $projects->status = $request->status;
+        $projects->update();
+        return redirect()->route('admin.index');
     }
 }
