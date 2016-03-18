@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $project = Project::all();
+        $project = Project::where('status', '=', '1')->get();
 
         return view('projects.index')->with(compact('project'));
     }
