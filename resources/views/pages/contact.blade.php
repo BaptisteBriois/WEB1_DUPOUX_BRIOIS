@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageTitle' => 'Conatct'])
+@extends('layouts.app', ['pageTitle' => 'Contact'])
 
 @section('content')
 
